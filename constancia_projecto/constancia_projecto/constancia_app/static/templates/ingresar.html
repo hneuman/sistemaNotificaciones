@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+
+{% block usuario_ingresar %}
+	<h2>  Ingresar al Sistema </h2>
+	<div id="formulario">
+		<form id="form_form" method='post' action=''>{% csrf_token %}
+			{{formulario}}
+		
+			<input type='submit' value='ingresar'>
+
+		</form>
+
+			<form action="/olvido_clave" class="inline">
+		    	<button > Olvido su Contraseña</button>
+			</form>
+
+	<p></p>
+	</div>	
+{% endblock %}	

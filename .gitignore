@@ -1,0 +1,6 @@
+django_constancia
+myenv
+
+*.pyc
+*.zip
+*.rar

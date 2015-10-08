@@ -1,0 +1,14 @@
+
+{% extends "main.html" %}
+
+{% block contenido %}
+
+	Bienvenido<strong> {{ usuario.first_name }} {{ usuario.last_name }} </strong>
+
+	<button type="button"  
+	onClick=window.open("{%url 'constancia_projecto.constancia_app.views.enviar_solicitud' usuario.id "constancia" %}","demo","width=850,height=600,left=150,top=200,toolbar=0,status=0,") value="Constancia_Enviar"> Constancia_Enviar </button>
+		
+	<button type="button"  
+	onClick=window.open("{%url 'constancia_projecto.constancia_app.views.test' usuario.Nombre %}","demo","width=850,height=600,left=150,top=200,toolbar=0,status=0,") value="Recibo"> Test </button>	
+
+{% endblock %}

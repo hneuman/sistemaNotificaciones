@@ -1,0 +1,41 @@
+
+{% extends "main.html" %}
+{% load static %}
+{% block contenido %}
+
+	Bienvenido <strong> {{ usuario.first_name }} {{ usuario.last_name }} </strong>
+ 	<p></p>
+<div id="botones">
+	<button type="button" 
+		onClick=window.open("{%url 'constancia_app.views.Constancia' usuario.id %}","popUpWindow","width=850,height=600,left=150,top=200,toolbar=0,status=0,") value="Constancia">Constancia
+		<p></p>
+				<img class="img_botones" border="0" alt="Industrias Diana" src='{% static "img/Constancia2.png" %}'>
+
+		</button>
+	
+
+
+	
+	<button type="button" 
+		onClick=window.open("{%url 'constancia_app.views.Recibo' usuario.id %}","popUpWindow","width=850,height=600,left=150,top=200,toolbar=0,status=0,") value="Recibo"> Recibo
+		<p></p>
+				<img class="img_botones" border="0" alt="Industrias Diana" src='{% static "img/Recibo2.png" %}'>
+		
+		</button>
+	
+
+
+	
+
+	<form action="/ingresar" class="inline">
+	    <button >Salir</button>
+	</form>
+
+
+	<p></p>
+
+</div>	
+	
+
+
+{% endblock %}

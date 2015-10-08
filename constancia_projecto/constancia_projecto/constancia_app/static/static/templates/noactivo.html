@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% block usuario_no_activo %}
+<h1> Usuario Desactivado </h1>
+<h2> El Usuario posee una clave TEMPORAL, Actualizar Contraseña para Ingresar Normalmente </h2>
+
+
+
+ <FORM  method="post" id="cambiar_clave" 
+ onsubmit="return verificar_clave(id_clave_usuario,id_clave_re_usuario )" 
+ action="cambiar_clave">{% csrf_token %}
+    <P>
+
+
+<div class="fieldWrapper">
+    <label for="username_usuario" id="username_usuario" desactivated>  nombre de usuario </label>
+  	 {{ formulario.username_usuario }}
+</div>
+
+
+<div class="fieldWrapper">
+    <label for="clave" id="clave">  clave_usuario:</label>
+    {{ formulario.clave_usuario }}
+</div>
+<div class="fieldWrapper">
+    <label for="clave_re" id="clave_re"> clave_re_usuario?</label>
+    {{ formulario.clave_re_usuario }}
+</div>
+
+
+    <INPUT type="submit" value="Enviar"> <INPUT type="reset">
+    </P>
+ </FORM>
+
+
+
+
+
+
+{% endblock %}	
+

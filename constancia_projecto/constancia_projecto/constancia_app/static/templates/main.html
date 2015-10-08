@@ -1,0 +1,192 @@
+{% load static %}
+<!doctype html>
+<html>
+	<head>
+	<style type ="text/css">
+	body {
+		margin:10px;
+		padding: 10px;
+		background: rgb(240,240,240);
+		text-align: left;
+		max-width: 100%;
+	}
+
+	#contenedor{
+		width: 55%;
+		margin: auto;
+		background: rgb(140,140,140);
+		padding: 15px;
+		}
+	p{	
+		text-align: justify;
+		font-family: : sans-serif;
+		font-size: 12px;
+		color: rgb(100,100,100);
+	}
+	h1,h2,h3,h4{
+		margin: 0px;
+		padding: 0px;
+		color: rgb(50,50,50);
+		font-family: serif;
+	}
+	article p{
+		padding-left: 20px;
+	}
+	article{
+		border-bottom: 1px dashed grey;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	h1{
+		font-size: 52px;
+		text-decoration: none;
+	}
+	header a{
+		text-decoration: none;
+	}
+	h2{
+		font-size: 18px;
+		text-decoration: underline;
+	}
+	#articulo{
+		width: 50%;
+		background: rgb(220,220,220);
+		padding: 20px;
+		padding-left: 30px;
+		position: relative;
+		float: left;
+
+	}
+	
+	#form_form{
+		width: 30%;
+		height: 30%;
+		position: relative;
+		left: 30%;
+
+
+	}
+
+	aside{
+		width: 30%;
+		float: right;
+		background: rgb(150,150,200);
+		padding: 20px;
+		max-width: 30%;
+	}
+
+	section{
+	text-align: left;
+	max-width: 100%;
+	
+
+	}
+	#botones{
+		text-align: center;
+
+	}
+
+
+	.img_botones{
+
+		max-width: 50%;
+	}
+
+	</style>
+
+	<script type="text/javascript">
+
+	function actualizar(id_usuario,Meses,Anno){
+
+		var anno = 	document.getElementById("Anno").value;
+		var meses = 	document.getElementById("Meses").value;
+
+		console.log(">>>" + anno + "<<<")
+
+
+		document.getElementById("botonMod_contenido").innerHTML =" Generar Recibo " + meses + "/" + anno ;
+		
+		document.getElementById("botonMod").action = "/enviar_solicitud_recibo/"+id_usuario+"/"+meses+"/"+anno;
+
+		document.getElementById("botonMod_contenido").disabled=false;
+
+		var texto = "<button type=\"button\" id=\"botonMod\" onclick=\"actualizar(Meses,Anno);\" , value=\"Recibo_wtf\" > "+ "Generar Recibo" + meses + "/" + anno + "</button>";
+
+		console.log(texto);
+
+		}
+
+	function verificar_clave(password,password_re){
+		console.log(password.value);
+		console.log(password_re.value);
+
+		
+		if(password.value == password_re.value){
+			alert("Su usuario ha sido Activado Satisfactoriamente");
+		ok = true;
+		}
+		else{
+			alert("Las Contraseñas No Coinciden");
+		ok = false;
+
+		}
+		
+		return ok;
+	}
+
+	</script>
+
+	<title>Sistema de Solicitud</title>
+   	<link rel="icon" type="image/gif" href='{% static "img/icono/dianita.png" %}' />
+
+	</head>
+	<body>
+		<div id"contenedor">
+		<header>
+			<p>
+				<a href="http://www.industriasdiana.gob.ve/">
+				<img border="0" alt="Industrias Diana" src='{% static "img/diana_cabecera.png" %}'
+	 			style=' width:100%; max-height:100%; border:0;'
+
+				/>
+				</a>
+			</p>
+
+			<a href="/"><h2>Industrias Diana </h2></a>
+			<h2> Solicitud de Constancias y Recibos</h2>
+		</header>
+			<section>
+				<div id="articulo">
+			
+
+				{% block contenido %}{% endblock %}
+				{% block formularioUsuario %}{% endblock %}
+				{% block usuario_ingresar %}{% endblock %}
+				{% block usuario_no_activo %}{% endblock %}
+				{% block usuario_no_existe %}{% endblock %}
+				{% block administrador %}{% endblock %}
+				{% block olvido_clave %}{% endblock %}
+
+				</div>
+
+		
+			</section>
+
+			<aside>
+			<h4>Historial</h4>
+
+			<h4>Columna Divesora a la derecha</h4>
+			<p> Bla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla blaBla bla bla bla bla </p>
+			</aside>	
+
+			<div style="clear:both;"></div>
+		<footer>
+			(c) 2015 Desarrollo SISB
+			<img border="0" alt="Industrias Diana" src='{% static "img/diana_pies.png" %}'
+	 			style=' width:100%; max-height:100%; border:0;'
+				/>
+		</footer>	
+		</div>	
+	</body>
+
+</html>

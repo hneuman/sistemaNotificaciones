@@ -1,0 +1,44 @@
+
+{% extends "main.html" %}
+
+{% block contenido %}
+
+
+
+	Bienvenido<strong> {{ usuario.first_name }} {{ usuario.last_name }} </strong>
+	<p></p>
+
+	<select name="Meses" id="Meses" >
+	   <option  value="1">Enero</option>
+	   <option  value="2">Febrero</option>
+	   <option  value="3">Marzo</option>
+	   <option  value="4">Abril</option>
+	   <option  value="5">Mayo</option>
+	   <option  value="6">Junio</option>
+	   <option  value="7">Julio</option>
+	   <option  value="8">Agosto</option>
+	   <option  value="9">Septiembre</option>
+	   <option  value="10">Octubre</option>
+	   <option  value="11">Novimebre</option>
+	   <option  value="12">Diciembre</option>
+
+	</select>
+
+	<select name="Anno" id="Anno" >
+
+	   <option  value="2014">2014</option>
+	   <option  value="2015">2015</option>
+
+
+	</select>
+	<p></p>
+	<button type="button" value="Recibo" onclick="actualizar({{usuario.id}},Meses,Anno);"  >Actualizar </button>
+	
+
+
+
+	<form id="botonMod" action="/">
+	    <button id="botonMod_contenido" disabled > Seleccionar Periódo </button>
+	</form>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block olvido_clave %}
+	<h2>  Olvido su contraseña </h2>
+	<h3>  Proporcione los datos Solicitados</h2>
+
+	<div id="formulario">
+
+
+		 <FORM  method="post" id="form_olvido_clave" 
+		 
+		 action="olvido_clave">{% csrf_token %}
+		  <P>
+
+
+		<div class="fieldWrapper">
+		    <label for="username_usuario" id="username_usuario">  nombre de usuario </label>
+		  	 {{ formulario.form_olvido_clave_username }}
+		</div>
+
+
+	    <INPUT type="submit" value="Enviar"> <INPUT type="reset">
+		    </P>
+		 </FORM>
+
+
+
+	</div>	
+{% endblock %}	
