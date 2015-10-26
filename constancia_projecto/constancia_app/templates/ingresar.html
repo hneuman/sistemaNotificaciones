@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block usuario_ingresar %}
+
+
+	<div class="caja_login">
+		<img src='{% static "static/img/dian_login.png" %}' id="imagen_login" alt="Industrias Diana C.A. --- Correo Institucional">
+
+			<form id="form_form" method="post" action="/ingresar">{% csrf_token %} 
+			<input type="hidden" name="_token" value="f1da09da0c3c84cd764e155e7fe0e7ab">
+			<input type="hidden" name="_task" value="login"><input type="hidden" name="_action" value="login"><input type="hidden" name="_timezone" id="rcmlogintz" value="America/Caracas"><input type="hidden" name="_url" id="rcmloginurl">
+		
+			<table>
+			<tbody>
+
+				<tr>
+					<td class="title"><label for="rcmloginuser"></label>
+					</td>
+					
+					<td class="input"><input name="username" id="id_username" required="required" size="40" autocapitalize="off" type="text" placeholder="Ingrese su Cedula"></td>	
+				</tr>
+
+				<tr>
+					<td class="title"><label for="rcmloginpwd"></label>
+					</td>
+					<td class="input"><input name="password" id="id_password" required="required" size="40" autocapitalize="off" type="password" placeholder="Ingrese su Contraseña"></td>
+				</tr>
+
+			</tbody>
+			</table>
+			<p class="formbuttons"><input type="submit" id="rcmloginsubmit" class="button mainaction" value="Iniciar sesión"></p>
+
+			</form>
+
+	</div>
+
+
+
+	<p> </p>
+	<a href="/validar_solicitud"> <strong> Validar Solicitud </strong> </a>
+
+	<!-- <a href="/olvido_clave"> Olvido su Contraseña </a> -->
+
+
+
+{% endblock %}	

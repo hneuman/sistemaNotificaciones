@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+	<head>
+
+	<script type="text/javascript">
+		
+		function alerta(Meses,id_usuario){
+			var e = document.getElementById("Meses");
+			var strUser = e.options[e.selectedIndex].text;
+			var mes = Number(strUser);
+			
+			var varBoton = "<button type=\"button\" id='botonMod' onClick = window.open(\"{%url 'constancia_projecto.constancia_app.views.test' " + strUser 
+
+			var varBoton2= "%}\",\"demo\",\"width=850,height=600,left=150,top=200,toolbar=0,status=0,\") value=\"Recibo\">Recibo_" + strUser + "</button>";
+
+
+
+
+		document.getElementById("botonMod").innerHTML =	"<button type='button' onClick=window.open('{%url 'constancia_app.views.test' "strUser"%},\''demo','width=850,height=600,left=150,top=200,toolbar=0,status=0,\') value='Recibo'> Recibo______</button>";
+
+	}
+	</script>
+		
+
+
+	<style type ="text/css">
+	body {
+		margin:10px;
+		padding: 10px;
+		background: rgb(250,250,250);
+	}
+
+	#contenedor{
+		width: 70%;
+		margin: auto;
+		background: rgb(140,140,140);
+		padding: 15px;
+		}
+	p{	
+		text-align: justify;
+		font-family: : sans-serif;
+		font-size: 12px;
+		color: rgb(100,100,100);
+	}
+	h1,h2,h3,h4{
+		margin: 0px;
+		padding: 0px;
+		color: rgb(50,50,50);
+		font-family: serif;
+	}
+	article p{
+		padding-left: 20px;
+	}
+	article{
+		border-bottom: 1px dashed grey;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	h1{
+		font-size: 52px;
+		text-decoration: none;
+	}
+	header a{
+		text-decoration: none;
+	}
+	h2{
+		font-size: 18px;
+		text-decoration: underline;
+	}
+	#articulo{
+		width: 60%;
+		float: left;
+		background: rgb(250,250,250);
+		padding: 20px;
+		
+	}
+	aside{
+		width: 30%;
+		float: right;
+		background: rgb(150,150,200);
+		padding: 20px;
+	}
+
+	</style>
+
+	<title>Sistema de Solicitud</title>
+	</head>
+	<body>
+		<div id"contenedor">
+		<header>
+			<a href="http://localhost:8000"><h1>Industrias Diana </h1></a>
+			<h2> Solicitud de Constancias y Recibos</h2>
+		</header>
+			<section>
+				<div id="articulo">
+				{% block contenido %}{% endblock %}
+			
+				</div>
+		
+			</section>
+			<div style="clear:both;"></div>
+		<footer>
+			(c) 2015 Desarrollo SISB
+		</footer>	
+		</div>	
+	</body>
+
+</html>

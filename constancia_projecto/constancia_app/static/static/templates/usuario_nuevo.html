@@ -1,0 +1,10 @@
+usuario nuevo
+		var varBoton = "<button type='button' id='botonMod' onClick = window.open('{%url 'constancia_app.views.test' strUser %}','demo','width=850,height=600,left=150,top=200,toolbar=0,status=0,') value='Recibo'>Recibo_" + strUser + "</button>";	
+			varBoton = varBoton.replace("strUser",strUser)	;
+
+		var varBoton = "<button type=\"button\" id='botonMod' 
+			onClick = window.open(\"{%url 'constancia_app.views.test' strUser %}\",\"demo\",\"width=850,height=600,left=150,top=200,toolbar=0,status=0,\") value=\"Recibo\">Recibo_" + strUser + "</button>";
+
+				An image as a link: <a href="http://www.industriasdiana.gob.ve/">
+					<img border="0" alt="Industrias Diana" 
+					src='/home/administrador/django_constancia/constancia_projecto/constancia_projecto/constancia_app/static/img/descarga.png' width="100" height="100">
