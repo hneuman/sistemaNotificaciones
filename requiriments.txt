@@ -6,4 +6,5 @@ psycopg2==2.6.1
 requests==2.8.1
 requests-oauthlib==0.5.0
 twython==3.3.0
+whitenoise==2.0.4
 wsgiref==0.1.2
