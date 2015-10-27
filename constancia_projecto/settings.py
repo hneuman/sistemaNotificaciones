@@ -139,5 +139,3 @@ USE_TZ = True
 
 LOGIN_URL ="/ingresar"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
