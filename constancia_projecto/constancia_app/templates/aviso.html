@@ -1,0 +1,11 @@
+{% extends 'main.html' %}
+{% block contenido %}
+
+	<h1> <strong> {{error}} </strong> </h1>
+
+	<h1> <strong> {{aviso}} </strong> </h1>
+
+	<a href="{%url 'constancia_app.views.usuario' user.id %}" > Volver a la pagina Principal</a>
+	
+{% endblock %}	
+

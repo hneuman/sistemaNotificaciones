@@ -1,0 +1,264 @@
+{% load static %}
+
+.
+{% load static %}
+<!doctype html>
+<html>
+	<head>
+	<style type ="text/css">
+	body {
+		background: rgb(240,240,240);
+		text-align: left;
+		max-width: 100%;
+		max-height: 100%;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		height: 100%;
+	}
+	html{
+		height: 100%;
+		margin: 0;
+
+	}
+	footer {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	header {
+		max-width: 100%;
+		max-height: 100%;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+
+	#contenedor{
+		width: 55%;
+		background: rgb(140,140,140);
+		}
+	p{	
+		text-align: justify;
+		font-family: : sans-serif;
+		font-size: 12px;
+		color: rgb(100,100,100);
+	}
+	h1,h2,h3,h4{
+		margin: 0px;
+		padding: 0px;
+		color: rgb(50,50,50);
+		font-family: serif;
+	}
+	article p{
+		padding-left: 20px;
+	}
+	article{
+		border-bottom: 1px dashed grey;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding: 20px;
+	}
+	h1{
+		font-size: 52px;
+		text-decoration: none;
+	}
+	header a{
+		text-decoration: none;
+	}
+	h2{
+		font-size: 18px;
+		text-decoration: underline;
+	}
+	#articulo{
+		width: 50%;
+		background: rgb(220,220,220);
+		padding: 20px;
+		padding-left: 30px;
+		position: relative;
+		float: left;
+
+	}
+	
+	#form_form{
+		width: 30%;
+		height: 30%;
+		position: relative;
+		left: 30%;
+
+
+	}
+
+	aside{
+		width: 30%;
+		float: right;
+		background: rgb(137, 35, 27);
+		padding: 20px;
+		max-width: 30%;
+	}
+
+	section{
+	text-align: left;
+	max-width: 100%;
+	
+
+	}
+	#botones{
+		text-align: center;
+
+	}
+
+
+	.img_botones{
+
+		max-width: 50%;
+	}
+	.imagen_validar{
+		max-width: 30%;
+		margin-left: 30%;
+
+
+	}
+	.boton_olvido_clave{
+	text-align: right;
+
+	}
+	</style>
+
+	<script type="text/javascript">
+
+	function actualizar(id_usuario,Meses,Anno){
+
+		var anno = 	document.getElementById("Anno").value;
+		var meses = 	document.getElementById("Meses").value;
+
+		console.log(">>>" + anno + "<<<")
+
+
+		document.getElementById("botonMod_contenido").innerHTML =" Generar Recibo " + meses + "/" + anno ;
+		
+		document.getElementById("botonMod").action = "/enviar_solicitud_recibo/"+id_usuario+"/"+meses+"/"+anno;
+
+		document.getElementById("botonMod_contenido").disabled=false;
+
+		var texto = "<button type=\"button\" id=\"botonMod\" onclick=\"actualizar(Meses,Anno);\" , value=\"Recibo_wtf\" > "+ "Generar Recibo" + meses + "/" + anno + "</button>";
+
+		console.log(texto);
+
+		}
+
+	function verificar_clave(password,password_re){
+		console.log(password.value);
+		console.log(password_re.value);
+
+		
+		if(password.value == password_re.value){
+			alert("Su usuario ha sido Activado Satisfactoriamente");
+		ok = true;
+		}
+		else{
+			alert("Las Contraseñas No Coinciden");
+		ok = false;
+
+		}
+		
+		return ok;
+	}
+
+	function cerrar_ventana(){
+		console.log("cerrarrrr_ventanaaa")
+		aler("cerrar_vetanana");
+
+		return true;
+
+	}
+
+	</script>
+
+	<title>Sistema de Solicitud</title>
+   	<link rel="icon" type="image/gif" href='{% static "img/icono/dianita.png" %}' />
+
+	</head>
+	<body>
+		<div id"contenedor">
+		<header>
+
+
+
+
+
+	<div class="art-Header">
+
+		<div class="Header-flash">
+    
+			<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0" width="100%" height="100%">
+			<param name="movie" value='{% static "static/img/cabecera/cabecera.swf" %}'>
+			<param name="quality" value="high">
+			<param name="wmode" value="transparent">
+			<embed src='{% static "static/img/cabecera/cabecera.swf" %}' width="100%" height="100%" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent"></object>
+
+
+
+			</div>
+			<div class="art-Logo">
+			<h1 id="name-text" class="art-Logo-name"><a href="/"> </a></h1>
+			<div id="slogan-text" class="art-Logo-text"> </div>
+
+		</div>
+
+
+	</div>
+
+
+			<a href="/"><h2>Industrias Diana [Ir a Inicio]</h2></a>
+			<h2> Solicitud de Constancias y Recibos</h2>
+
+
+		</header>
+
+
+<div class="Header-flash">
+    
+
+
+    
+    
+    </div>
+		
+
+			<section>
+				<div id="articulo">
+			
+
+				{% block contenido %}{% endblock %}
+				{% block formularioUsuario %}{% endblock %}
+				{% block usuario_ingresar %}{% endblock %}
+				{% block usuario_no_activo %}{% endblock %}
+				{% block usuario_no_existe %}{% endblock %}
+				{% block administrador %}{% endblock %}
+				{% block olvido_clave %}{% endblock %}
+
+				</div>
+
+		
+			</section>
+		
+
+		<aside>
+
+			<img id="chavez_diana" border="0" alt="Industrias Diana" src='{% static "static/img/chavez.jpg" %}'
+	 			style=' width:100%; max-height:100%; border:0;'
+				/>			
+		</aside>	
+
+		<div style="clear:both;"></div>
+		<footer>
+			(c) 2015 Desarrollo SISB
+			<img border="0" alt="Industrias Diana" src='{% static "img/diana_pies.png" %}'
+	 			style=' width:100%; max-height:100%; border:0;'
+				/>
+		</footer>	
+		</div>	
+	</body>
+
+</html>

@@ -1,0 +1,27 @@
+
+{% extends "main.html" %}
+{% load static %}
+{% block contenido %}
+
+
+<div id="botones">
+	
+	<a id="boton_constancia" class="botones_class" 
+		href="{%url 'constancia_app.views.Constancia' usuario.id %}" value="Constancia"> 
+		<img class="img_botones" border="0" alt="Industrias Diana" src='{% static "static/img/Constancia2_2.png" %} ' width="30%" height="30%">
+
+		</a>
+	
+	
+	<a  id="boton_recibo"  class="botones_class"
+		href="{%url 'constancia_app.views.Recibo' usuario.id %}" value="Recibo"> 
+		<img  class="img_botones" border="0" alt="Industrias Diana" src='{% static "static/img/Recibo2_2.png" %}'  width="28.5%" height="28.5%" >
+		
+		</a>
+	
+
+</div>	
+	
+
+
+{% endblock %}

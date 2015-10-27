@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block encabezado %}
+	<h1>> Registrar Usuario</h1>
+{% endblock %}	
+
+{% block formularioUsuario %}
+	<form id='formulario' method='post' action =''>{% csrf_token %}
+		<table> 
+			{{formulario}}
+		</table>
+		<p> <input type='submit' value='Registrar'>		
+		</p>
+
+	</form>	
+{% endblock %}	

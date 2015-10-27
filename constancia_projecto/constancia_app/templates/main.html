@@ -1,0 +1,463 @@
+{% load static %}
+<!doctype html>
+
+<html lang="es">
+	<head>
+	<style type ="text/css">
+	body {
+
+		background: rgb(240,240,240);
+		max-width: 100%;
+		max-height: 100%;
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		font-family: arial;
+
+	}
+
+	footer {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	header {
+		max-width: 100%;
+		max-height: 100%;
+	}
+
+	#contenedor{
+		
+		text-align: center;
+		max-width: 70%;
+		margin-left: 15%;
+		<!--box-shadow: 0px 10px 15px rgb(0,0,0,0.1);-->
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+
+		-webkit-box-shadow: 0px 10px 15px black;
+		-moz-box-shadow: 0px 10px 15px black;
+		box-shadow: 0px 10px 15px black;
+		}
+
+	p{	
+		text-align: justify;
+		font-family: : 'Montserrat', arial;
+		font-size: 12px;
+		color: rgb(100,100,100);
+	}
+	h1,h2,h3,h4{
+		margin: 0px;
+		padding: 0px;
+		color: rgb(50,50,50);
+		font-family: serif;
+	}
+	article p{
+		padding-left: 20px;
+	}
+	article{
+		border-bottom: 1px dashed grey;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding: 20px;
+	}
+	h1{
+		font-size: 20px;
+		text-decoration: none;
+	}
+
+	h2{
+		font-size: 18px;
+		text-decoration: underline;
+	}
+	#articulo{
+		width: 55%;
+		background: rgb(240, 240, 240);;
+		padding: 20px;
+		padding-left: 30px;
+		position: relative;
+		float: left;
+
+	}
+	
+	#form_form{
+		width: 30%;
+		height: 30%;
+		position: relative;
+		left: 0%;
+	
+
+	}
+
+	aside{
+		width: 35%;
+		float: right;
+		background: rgb(156, 7, 7);
+		padding: 20px;
+		max-width: 30%;
+		margin-right: 10px;
+
+		border-radius: 10px;
+
+	}
+
+	section{
+	text-align: left;
+	max-width: 100%;
+	
+
+	}
+	a{
+		text-decoration: none;
+		font-weight: bold;
+	}
+	#botones{
+		text-align: center;
+		max-width: 100%;
+
+	}
+
+
+	.img_botones{
+    	
+		margin: 1%;
+		max-width: 30%;
+		border-radius: 30px;
+		<--! box-shadow: 0px 10px 15px black; -->
+		-webkit-box-shadow: 0px 10px 15px black;
+		-moz-box-shadow: 0px 10px 15px black;
+		box-shadow: 0px 10px 15px black;
+
+	}
+
+	.imagen_validar{
+		max-width: 10%;
+		margin-left: 10%;
+
+
+	}
+	.boton_olvido_clave{
+	text-align: right;
+
+	}
+
+	.Header-flash{
+		max-width: 100%;
+		max-height: 400px;
+		margin-top: 0;
+
+	}
+	.tabla_ingresasr{
+
+			text-align: center;
+
+	}
+
+	#todo_todo{
+
+		text-align: center;
+		max-width: 70%;
+		margin-left: 15%;
+
+	}
+
+	.caja_login {
+		width: 70%;
+		background: url('{% static "static/img/fondo_login.jpg" %}') top left no-repeat #5c5c5c;
+		border: 1px solid #333;
+		border-radius: 5px;
+		padding-left: 10%;
+	}
+
+	.Header-flash{
+		max-width: 100%;
+		height: auto%;
+		min-width: 100%;
+	}
+
+	#id_username[type="text"] {
+	     width: 200%; 
+	     box-sizing: border-box;
+	     -webkit-box-sizing:border-box;
+	     -moz-box-sizing: border-box;
+	}
+
+
+	#id_password[type="password"] {
+		     width: 200%; 
+		     box-sizing: border-box;
+		     -webkit-box-sizing:border-box;
+		     -moz-box-sizing: border-box;
+		}
+
+
+
+	#imagen_login{
+		left: 0;
+	}
+
+	.botones_class{
+				
+		padding: 1%;
+		max-height: 40%;
+
+
+	}
+
+	#boton_constancia{
+		max-width: 30%;
+	}
+
+	#boton_recibo{
+		max-width: 30%;
+	}
+
+
+	.cintillo{
+		top: 0;
+		height: 80px;
+		width: 100%;
+
+		background-repeat: no-repeat;
+	}
+
+	.pie_de_pagina {
+
+		width: 100%;
+		height: 30px;
+		bottom: 0;
+		text-align: center;
+		background-color: rgb(156, 7, 7);
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+
+	}
+
+	#otroP{
+		font-size: 12px;
+		color: rgb(255,255,255);
+		text-align: center;
+		transition: all .2s ease-in-out;
+	}
+
+
+	.img_botones:hover {
+		max-width: 35%;
+		transform: scale(1.1);
+	} 
+
+	</style>
+
+	<script type="text/javascript">
+
+	function actualizar(id_usuario,Meses,Anno){
+
+		var anno = 	document.getElementById("Anno").value;
+		var meses = 	document.getElementById("Meses").value;
+
+		console.log(">>>" + anno + "<<<")
+
+
+		document.getElementById("botonMod_contenido").innerHTML =" Generar Recibo " + meses + "/" + anno ;
+		
+		document.getElementById("botonMod").action = "/enviar_solicitud_recibo/"+id_usuario+"/"+meses+"/"+anno;
+
+		document.getElementById("botonMod_contenido").disabled=false;
+
+		var texto = "<button type=\"button\" id=\"botonMod\" onclick=\"actualizar(Meses,Anno);\" , value=\"Recibo\" > "+ "Generar Recibo" + meses + "/" + anno + "</button>";
+
+		console.log(texto);
+
+		}
+
+	function verificar_clave(password,password_re){
+		console.log(password.value);
+		console.log(password_re.value);
+
+		
+		if(password.value == password_re.value){
+			alert("Su usuario ha sido Activado Satisfactoriamente");
+		ok = true;
+		}
+		else{
+			alert("Las Contraseñas No Coinciden");
+		ok = false;
+
+		}
+		
+		return ok;
+	}
+
+	function validar_usuario(password,password_re,correo,correo_re){
+
+		if(password.value == password_re.value && correo.value == carreo_re.value ){
+			alert("Su usuario ha sido Activado Satisfactoriamente");
+		ok = true;
+		}
+		else{
+			alert("Los Datos No Coinciden, Verificar Contraseñas y Correos ingresados");
+		ok = false;
+
+		}
+		
+		return ok;
+
+
+
+	}
+
+	function cerrar_ventana(){
+		console.log("cerrarrrr_ventanaaa")
+		aler("cerrar_vetanana");
+
+		return true;
+
+	}
+
+
+	function hola(){
+		console.log("cerrarrrr_ventanaaa")
+		aler("hola");
+
+		return true;
+	}
+
+	function cambiarColor(imagen){
+		imagen.style.background = rgb(137, 235, 227);	
+
+
+	}
+
+	function obtener_meses(){
+
+		var fecha = new Date();
+		var mes = fecha.getMonth() + 1;
+		var year = fecha.getFullYear();
+
+		console.log( fecha );
+		console.log(fecha.getDate());
+		console.log( mes );
+		console.log( year );
+
+		var x=document.getElementById("Meses");
+	    var y=document.getElementById("Anno");
+
+		if ( year == document.getElementById("Anno").value ){
+			for (i=0; i<12; i++){
+				if ( i < mes){
+				}
+				else{
+					document.getElementById("Meses").options[i].disabled=true
+				}
+			}
+		}
+
+		else{
+			for (i=0; i<12; i++){
+				document.getElementById("Meses").options[i].disabled=false
+			}
+		} 
+	/*Meses;*/
+
+	}
+	</script>
+
+	<title>Sistema de Solicitud</title>
+   	<link rel="icon" type="image/gif" href='{% static "img/icono/dianita.png" %}' />
+
+	</head>
+	<body>
+		<div id="contenedor">
+			<header>
+
+				<div class="cintillo">
+					
+					 <img src='{% static "static/img/nav.png" %}' style=' width:100%; max-height:100%; border:0;'/>
+
+				</div>
+
+				<div class="Header-flash">
+					
+					<object type="application/x-shockwave-flash" data='{% static "static/img/cabecera/cabecera.swf" %}' width="100%" height="320"> 
+						<param name="wmode" value="transparent">
+						<param name="quality" value="high">
+
+					   <param name="movie" value='{% static "static/img/cabecera/cabecera.swf" %}' />  
+					   <img src='{% static "static/img/dianaheader_2.png" %}' width="100%" height="100%" alt="Esta es Una Imagen" />
+					</object>  
+			   
+			    </div>
+
+			</header>
+
+			{% if user.is_authenticated %}
+
+			<nav style="text-align:justify; ">
+			  
+			  <table  width="100%">
+				
+			   
+				<tr> 
+					<td>
+					 	<a href='{% url 'constancia_projecto.constancia_app.views.usuario' user.id %}' style="text-align:left; margin-left:5%;"> {{user.first_name}} {{user.last_name}} </a>
+					</td> 
+
+					<td style="text-align:right; margin-right:5%;">
+					    <a href='{% url 'constancia_projecto.constancia_app.views.cerrar_sesion' %}'>  SALIR  </a>
+
+					</td>  
+
+				</tr>	
+
+			  </table>
+			</nav>
+			
+			{% endif %}
+		
+			<section>
+				<div id="articulo">
+			
+
+				{% block contenido %}{% endblock %}
+				{% block formularioUsuario %}{% endblock %}
+				{% block usuario_ingresar %}{% endblock %}
+				{% block usuario_no_activo %}{% endblock %}
+				{% block usuario_no_existe %}{% endblock %}
+				{% block administrador %}{% endblock %}
+				{% block olvido_clave %}{% endblock %}
+
+
+				</div>
+
+		
+			</section>
+					
+
+			<aside>
+
+				<img id="chavez_diana" border="0" alt="Industrias Diana" src='{% static "static/img/chavez.jpg" %}'
+		 			style=' width:100%; max-height:100%; border:0;'
+					/>		
+
+
+
+			</aside>	
+
+			<div style="clear:both;"></div>
+			<footer>
+				<div class="pie_de_pagina" >
+
+					<p id="otroP"><strong>Copyright © 2015 - Industrias Diana C.A. - Rif: G-200096144</strong></p>
+				</div>
+			</footer>	
+
+
+
+
+
+
+
+		</div>	
+	</body>
+</html>
