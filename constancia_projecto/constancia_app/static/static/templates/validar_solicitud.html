@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block contenido %}
+	
+
+	
+	{% if validado.error or error %}
+		
+		<h1>{{ validado.error }}</h1>
+		<h1>{{ error }}</h1>
+
+		<div class="imagen_validar">
+			<img border="0" alt="No Validado" src='{% static "static/img/error.png" %}'
+		 			style=' width:100%; max-height:100%; border:0;'
+					/>
+		</div>
+	{% endif %}
+	
+	{% if  validado.trabajador %}
+
+	
+
+
+		<h3 id="otro">Nombre de Trabajador ::: <strong>{{ validado.trabajador }}</strong></h3>
+
+
+
+		<h3>Fecha de Impresión ::: {{ validado.impresion }} </h3>
+
+
+		<h3> Tipo de Solicitud ::: {{ validado.tipo }} -- {{ validado.descripcion }}</h3>
+		<div class="imagen_validar">
+			<img border="0" alt="Validado" src='{% static "static/img/validado.png" %}'
+		 			style=' width:100%; max-height:100%; border:0;'
+					/>
+		</div>
+	{% else %}
+	
+	<h2>  Validar Solicitud </h2>
+	
+	<h3>  Proporcione los datos Solicitados </h3>
+
+		<div id="formulario_validar_solicitud" >
+			<form id="form_validar_solicitud" method='post' action='validar_solicitud'>
+			{% csrf_token %}
+					<p></p>
+					
+					<label for="id_form_field_codigo">Codigo de Solicitud:</label>
+					<input id="id_form_field_codigo" maxlength="100" name="form_field_codigo" type="text" required="required">
+					<br>
+					<span class="helptext">Ingrese el codigo de la Solicitud a validar</span>
+
+					<p></p>
+				<p><input type='submit' value='Validar Solicitud'>
+				</p>		
+			</form>
+		
+		</div>	
+
+
+
+
+	{% endif %}
+		<a href='{% url 'constancia_projecto.constancia_app.views.ingresar' %}'>  <strong> Volver a la pagina de Inicio </strong> </a>
+{% endblock %}	

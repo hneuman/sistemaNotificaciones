@@ -1,0 +1,82 @@
+
+{% extends "main.html" %}
+
+{% block contenido %}
+
+
+
+
+
+
+	Bienvenido<strong> {{ usuario.first_name }} {{ usuario.last_name }} </strong>
+	<p></p>
+
+<!--se define el el select para despues crearlo dinamicamente -->
+
+	<select name="Anno" id="Anno"  onchange="obtener_meses();"  >
+		<option  value="0" selected="true" > Año a Consultar </option>
+	</select>
+
+
+	<select name="Meses" id="Meses" >
+	   <option  value="1">Enero</option>
+	   <option  value="2">Febrero</option>
+	   <option  value="3">Marzo</option>
+	   <option  value="4">Abril</option>
+	   <option  value="5">Mayo</option>
+	   <option  value="6">Junio</option>
+	   <option  value="7">Julio</option>
+	   <option  value="8">Agosto</option>
+	   <option  value="9">Septiembre</option>
+	   <option  value="10">Octubre</option>
+	   <option  value="11">Noviembre</option>
+	   <option  value="12">Diciembre</option>
+
+	</select>
+
+	<p></p>
+	<button id="botonMod_actualizar" type="button" value="Recibo" onclick="actualizar({{usuario.id}});" disabled >Actualizar </button>
+	
+
+
+
+	<form id="botonMod" action="/">
+	    <button id="botonMod_contenido" disabled > Seleccionar Periódo </button>
+	</form>
+
+
+<script type="text/javascript">
+	var fecha = new Date();
+	var mes = fecha.getMonth() + 1;
+	var year = fecha.getFullYear();
+	var year_uno = 2014;
+
+	var year = fecha.getFullYear();
+	var contador = parseInt("0");
+	console.log(">>>>>>>>>>" + year);
+	console.log(">>>>>>>>>>" + contador);
+
+
+//Create and append select list
+	var lista_year = document.getElementById("Anno");
+
+//Create and append the options / Agregando Opciones a la lista de Annos de manera dinamica
+
+	for (i=year_uno; i<= year; i++){
+
+	    var option = document.createElement("option");
+	    option.value = i;
+	    option.text = i;
+	    option.innerHTML= i;
+
+	    lista_year.appendChild(option);
+	    contador = contador + 1;
+	    console.log(">>>>>"+ i +"<<<<<z");
+	}
+
+
+		
+
+</script>
+
+{% endblock %}

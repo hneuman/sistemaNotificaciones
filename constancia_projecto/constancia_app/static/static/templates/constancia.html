@@ -1,0 +1,17 @@
+
+{% extends "main.html" %}
+
+{% block contenido %}
+
+	Bienvenido<strong> {{ usuario.first_name }} {{ usuario.last_name }} </strong>
+	
+	<p></p>
+	
+	<form id="botonMod" action="{%url 'constancia_projecto.constancia_app.views.enviar_solicitud' usuario.id "constancia" %}" method="GET">
+	    <button id="botonMod_contenido" type='submit'  > Solicitar constancia </button>
+	</form>
+
+	
+
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'main.html' %}
+{% block contenido %}
+{% load static %}
+
+<p></p>
+
+
+<div id="div_ivss"> 
+	
+	<img  class="img_botones" border="0" alt="Industrias Diana" src='{% static "static/img/ivss.jpg	" %}'  width="28.5%" height="28.5%" onclick="load_home(
+	{{usuario.cedula}},
+	{{usuario.fecha_nacimiento.day}},
+	{{usuario.fecha_nacimiento.month}},
+	{{usuario.fecha_nacimiento.year}},{{usuario}});"
+	title="Presiona aqui para realizar una consulta en el Ivss con tus Datos">
+
+
+</div>
+
+
+<div id ="content"> </div>
+<script>
+
+	function load_home (cedula,dia,mes,anno,usuario) {
+		console.log(cedula)
+		console.log(dia)
+		console.log(mes)
+		console.log(anno)
+		console.log(usuario)
+		console.log(usuario['nacionalidad'])
+
+		var url="http://www.ivss.gob.ve:28083/CuentaIndividualIntranet/CtaIndividual_PortalCTRL?cedula_aseg="+cedula+"&d="+dia+"&m="+mes+"&y="+anno+"&nacionalidad_aseg="+"V"
+		
+		window.open(url, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=400, height=400");
+}
+
+</script>
+
+
+
+{% endblock %}	
+

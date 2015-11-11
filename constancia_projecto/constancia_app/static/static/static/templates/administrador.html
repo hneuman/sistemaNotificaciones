@@ -1,0 +1,28 @@
+
+{% extends "main.html" %}
+
+{% block administrador %}
+
+	<h2>Bienvenido <strong>{{ usuario.Nombre }} </strong></h2>
+ 		<h2> Seccion Administrador </h2>
+
+
+
+	<button type="button" 
+		onClick=window.open("{%url 'constancia_app.views.cargar_usuarios' %}","demo","width=850,height=600,left=150,top=200,toolbar=0,status=0,") value="Prueba">Cargar Usuarios</button>
+			
+	<button type="button" >
+			<a href="definir_xmlrpc_conexion" > XMRLPC Configuracion </a>
+
+	</button>
+
+	
+
+
+
+	<form action="carnet_trabajador/" >
+	    <button >Consultar Carnet Trabajador</button>
+	</form>
+
+
+{% endblock %}

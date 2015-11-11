@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block contenido %}
+	<h2>  Definir Conexion XMLRPC </h2>
+	<h3>  Proporcione los datos Solicitados</h2>
+
+	<div id="formulario">
+
+
+		 <FORM  method="post" id="definir_xmlrpc_conexion"  action="definir_xmlrpc_conexion">{% csrf_token %}
+		
+		{{formulario.as_ul}}
+
+
+	    <INPUT type="submit" value="Enviar"> <INPUT type="reset">
+		    </P>
+		 </FORM>
+
+
+
+	</div>	
+{% endblock %}	

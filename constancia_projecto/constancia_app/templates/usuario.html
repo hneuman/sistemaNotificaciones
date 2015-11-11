@@ -1,0 +1,68 @@
+
+{% extends "main.html" %}
+{% load static %}
+{% block contenido %}
+
+<!--  Codigo constancia -->
+
+<div id="botones">
+	
+	<a id="boton_constancia" class="botones_class" 
+		href="{%url 'constancia_app.views.Constancia' usuario.id %}" value="Constancia"> 
+		<img class="img_botones" border="0" alt="Industrias Diana" src='{% static "static/img/Constancia2_2.png" %} ' width="30%" height="30%">
+
+		</a>
+	
+<!--  Codigo Recibo -->
+
+	<a  id="boton_recibo"  class="botones_class"
+		href="{%url 'constancia_app.views.Recibo' usuario.id %}" value="Recibo"> 
+		<img  class="img_botones" border="0" alt="Industrias Diana" src='{% static "static/img/Recibo2_2.png" %}'  width="28.5%" height="28.5%" >
+		
+		</a>
+
+<!--  Codigo ivss -->
+<!-- COmentar mientras no implementar -->
+		
+		<p></p>
+
+		<div id="div_ivss"> 
+			<a  id="boton_ivss"  class="botones_class" href="#" value="IVSS" >
+				<img  class="img_botones" border="0" alt="Industrias Diana" src='{% static "static/img/ivss.jpg" %}'  width="28.5%" height="28.5%" onclick="load_home(
+				{{usuario_usuario.cedula}},
+				{{usuario_usuario.fecha_nacimiento.day}},
+				{{usuario_usuario.fecha_nacimiento.month}},
+				{{usuario_usuario.fecha_nacimiento.year}},{{usuario_usuario}});"
+				title="Presiona aqui para realizar una consulta en el Ivss con tus Datos">
+			</a>
+
+		</div>
+
+
+		<div id ="content"> </div>
+		<script>
+
+			function load_home (cedula,dia,mes,anno,usuario) {
+				console.log(cedula)
+				console.log(dia)
+				console.log(mes)
+				console.log(anno)
+				console.log(usuario)
+				console.log(usuario['nacionalidad'])
+
+				var url="http://www.ivss.gob.ve:28083/CuentaIndividualIntranet/CtaIndividual_PortalCTRL?cedula_aseg="+cedula+"&d="+dia+"&m="+mes+"&y="+anno+"&nacionalidad_aseg="+"V"
+				
+				window.open(url, "_blank", "toolbar=yes, scrollbars=yes, resizable=yes, top=500, left=500, width=800, height=800");
+		}
+
+		</script>
+
+
+
+
+
+</div>	
+	
+
+
+{% endblock %}

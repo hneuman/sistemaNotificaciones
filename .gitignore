@@ -1,0 +1,12 @@
+*.zip
+*.pyc
+bin
+include
+bin                    
+include  
+Versiones
+lib
+constancia_projecto_2
+local
+!constancia_projecto/*
+

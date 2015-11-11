@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% block contenido %}
+{% load static %}
+
+
+	{% if not vacio %}
+	<strong> {{persona.Nombre}} </strong>
+	<strong> {{persona.Cedula}} </strong>
+	<strong> {{persona.Codigo_u}} </strong>
+
+
+	<p></p>
+	<img class="botones_class" class="img_botones" border="0" alt="" src={% static "static/img/" %}{{persona.Codigo_u}}.png  >
+	
+	<p></p>
+	
+	<form action="/carnet_trabajador/" >
+	    <button >Consultar Carnet Trabajador</button>
+	</form>
+
+	
+	{% else %}
+		<form method="POST" action="">{% csrf_token %}
+
+			{{formulario}}
+			<p></p>
+			<button type=submit> Consultar Trabajador </button>
+
+		</form>
+
+	{% endif %}
+
+
+
+{% endblock %}	
+
